@@ -71,6 +71,9 @@ function main() {
             # Break early
             if [[ "${busted}" == "1" ]]; then
                 echo -e "\e[31mYou lost (you busted)\e[0m"
+                (( money -= bet ))
+
+                echo "${money}" > ./money
                 break
             fi
             
@@ -110,6 +113,8 @@ function main() {
                 echo -e "\n\n\e[32mTie. No money was lost.\e[0m"
 
             fi
+
+            echo "${money}" > money
 
             # Super important
             break
